@@ -7,7 +7,8 @@ var failedConnections = 0;
 var autoReconnect = true;
 
 //var db_URI = 'mongodb://localhost/ElmChessDb'
-var db_URI = 'mongodb://chess_player:chess_player@ds163016.mlab.com:63016/chess-highscores';
+//var db_URI = 'mongodb://chess_player:chess_player@ds163016.mlab.com:63016/chess-highscores';
+var db_URI = 'mongodb://admin:adminadmin@clustermiw-shard-00-00-x3yuf.mongodb.net:27017,clustermiw-shard-00-01-x3yuf.mongodb.net:27017,clustermiw-shard-00-02-x3yuf.mongodb.net:27017/test?ssl=true&replicaSet=ClusterMIW-shard-0&authSource=admin&retryWrites=true&w=majority';
 connect();
 
 function connect() {

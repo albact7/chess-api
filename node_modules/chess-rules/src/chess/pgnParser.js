@@ -48,19 +48,19 @@ function parsePgnMove(pgn) {
     var mateIndex = pgn.indexOf('#');
     var promotionIndex = pgn.indexOf('=');
 
+    if (promotionIndex >= 0) {
+        fields.promotion = pgn.substring(promotionIndex + 1, promotionIndex + 2);
+        length = Math.min(promotionIndex, length);
+    }
+
     if (checkingIndex >= 0) {
         fields.checking = true;
-        length = checkingIndex;
+        length = Math.min(checkingIndex, length);
     }
 
     if (mateIndex >= 0) {
         fields.mate = true;
-        length = mateIndex;
-    }
-
-    if (promotionIndex >= 0) {
-        fields.promotion = pgn.substring(promotionIndex + 1, promotionIndex + 2);
-        length = promotionIndex;
+        length = Math.min(mateIndex, length);
     }
 
     // Now the destination is at the right of the payload
