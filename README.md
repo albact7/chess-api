@@ -13,5 +13,5 @@ API for playing chess and highscores storing. Api could be easily used to implem
 
 ## Built With
 
-* [Chess.js](https://github.com/jhlywa/chess.js)
+* [ChessCorp: Chess Rules](https://www.npmjs.com/package/chess-rules)
 * [ChessCorp Artificial Intelligence: Kong](https://www.npmjs.com/package/chess-ai-kong)
