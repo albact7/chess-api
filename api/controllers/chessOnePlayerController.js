@@ -180,40 +180,16 @@ exports.move = function(req, res) {
 
     getChess(gameId, currentGame => {
         if(currentGame != null) {
-           // var chess = new Chess(currentGame.chess);
-           // var movesArr = currentGame.chess_moves;
 
             if(chess != null) {
-                /*
-                var fromSq = req.body.from;
-                var toSq = req.body.to;
-*/
+ 
                 var newfen = req.body.fen;
-                //var newmove = req.body.san;
-                //var move = chess.move({ from: fromSq, to: toSq });
                 var position = chessRules.fenToPosition(newfen);
-
-                //var makeMove = chessRules.pgnToMove(position,newmove);
+                //TODO
                 if(newfen != undefined) {
                     //movesHistory.push(move.san);
                     console.log("Move from MCTS");
                     console.log(move);
-                    //movesArr.push(move.san);
-                    /*
-                    ChessGame.update({ game_id: gameId },
-                        {
-                         chess: chess.fen() ,
-                                chess_moves: movesArr
-                        },
-
-                        function (err, chess){
-                            if(err) {
-                                res.send(err);
-                            }
-                            status.status = "figure moved";
-                            res.json(status);
-                    });
-*/
                     // printChessboard(chess);
                     status.status = "figure moved";
                     res.json(status);
@@ -317,37 +293,10 @@ exports.moveAI = function(req, res) {
 
                 if(makeMove != null) {
 
-                    movesHistory.push(move);
-                    //var from = makeMove.from;
-                    //var to = makeMove.to;
+                    //movesHistory.push(move);
                     movesArr.push(makeMove.san);
-                   // var position = chessRules.fenToPosition(fen);
                     position = chessRules.applyMove(position, makeMove);
-/*
-                    ChessGame.update({ game_id: gameId },
-                        {
-                         chess: chess.fen() ,
-                                chess_moves: movesArr
-                        },
 
-                        function (err, chess){
-                            if(err) {
-                                res.send(err);
-                            }
-                            
-                            var aiMoves = new AIMoves();
-                            aiMoves.status = "AI moved!";
-                            aiMoves.to = to;
-                            aiMoves.from = from;
-                            
-                           var aiMoves = {};
-                           aiMoves.pgn = move;
-
-                           //get fen here
-
-                            res.json(aiMoves);
-                    });*/
-                   
                     var aiMoves = {};
                     aiMoves.pgn = move;
                     aiMoves.fen = chessRules.positionToFen(position);
@@ -363,50 +312,8 @@ exports.moveAI = function(req, res) {
                     console.log();
 
                 } else {
-                    console.log("F");
-                    /*
-                    //console.log(movesHistory);
-                    var move = chessAi.play(movesHistory);
-                    //var move = stockfish.
-                    console.log("AI MOVE 2")
-                    console.log(move);
-
-                    makeMove = chess.move(move);
+                    console.log("ERROR");
                     
-                    if(makeMove != null) {
-                        movesHistory.push(move);
-                        var from = makeMove.from;
-                        var to = makeMove.to;
-                        movesArr.push(makeMove.san);
-    
-    
-                        ChessGame.update({ game_id: gameId },
-                            {
-                             chess: chess.fen() ,
-                                    chess_moves: movesArr
-                            },
-    
-                            function (err, chess){
-                                if(err) {
-                                    res.send(err);
-                                }
-                                var aiMoves = new AIMoves();
-                                aiMoves.status = "AI moved!";
-                                aiMoves.to = to;
-                                aiMoves.from = from;
-    
-                                res.json(aiMoves);
-                        });
-    
-                        printChessboard(chess);
-    
-                    } else {
-                        
-                        status.status = "error: invalid move!";
-                        res.json(status);
-                        
-                    }
-                    */
                 }
 
             } else {
