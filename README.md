@@ -2,8 +2,6 @@
 API for playing chess and highscores storing. Api could be easily used to implement a multiplayer room based chess game, because every instance of a game initilizes new unique game_id.
 * ### [API Documentation](https://documenter.getpostman.com/view/1741165/chess-api/7Lof2bk#intro)
 
-* ### API URL: https://chess-api-chess.herokuapp.com/api/v1
-
 ## Feautures:
 
 * Player vs. Player game mode
@@ -13,5 +11,5 @@ API for playing chess and highscores storing. Api could be easily used to implem
 
 ## Built With
 
-* [Chess.js](https://github.com/jhlywa/chess.js)
+* [ChessCorp: Chess Rules](https://www.npmjs.com/package/chess-rules)
 * [ChessCorp Artificial Intelligence: Kong](https://www.npmjs.com/package/chess-ai-kong)
